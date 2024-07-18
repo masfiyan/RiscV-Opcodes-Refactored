@@ -1,0 +1,9 @@
+modules:
+  - name: "opcode_parser"
+    description: "Handles parsing of opcode definitions."
+  - name: "utils"
+    description: "Contains common utility functions."
+tasks:
+  - "Move common functions to utils module."
+  - "Ensure all opcode definitions are centralized in opcodes.yaml."
+  - "Update function names to adhere to naming conventions."

@@ -1,0 +1,181 @@
+# rv_i
+opcodes:
+  - name: LUI
+    opcode: 0x0D
+    funct: [6..2=0x0D, 1..0=3]
+    operands: ["rd", "imm20"]
+    description: "Load Upper Immediate"
+
+  - name: AUIPC
+    opcode: 0x05
+    funct: [6..2=0x05, 1..0=3]
+    operands: ["rd", "imm20"]
+    description: "Add Upper Immediate to PC"
+
+  - name: JAL
+    opcode: 0x1b
+    funct: [6..2=0x1b, 1..0=3]
+    operands: ["rd", "jimm20"]
+    description: "Jump And Link"
+
+  - name: JALR
+    opcode: 0x19
+    funct: [14..12=0, 6..2=0x19, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Jump And Link Register"
+
+  - name: BEQ
+    opcode: 0x18
+    funct: [14..12=0, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Equal"
+
+  - name: BNE
+    opcode: 0x18
+    funct: [14..12=1, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Not Equal"
+
+  - name: BLT
+    opcode: 0x18
+    funct: [14..12=4, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Less Than"
+
+  - name: BGE
+    opcode: 0x18
+    funct: [14..12=5, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Greater or Equal"
+
+  - name: BLTU
+    opcode: 0x18
+    funct: [14..12=6, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Less Than Unsigned"
+
+  - name: BGEU
+    opcode: 0x18
+    funct: [14..12=7, 6..2=0x18, 1..0=3]
+    operands: ["bimm12hi", "rs1", "rs2", "bimm12lo"]
+    description: "Branch if Greater or Equal Unsigned"
+
+  - name: LB
+    opcode: 0x00
+    funct: [14..12=0, 6..2=0x00, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Load Byte"
+
+  - name: LH
+    opcode: 0x00
+    funct: [14..12=1, 6..2=0x00, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Load Halfword"
+
+  - name: LW
+    opcode: 0x00
+    funct: [14..12=2, 6..2=0x00, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Load Word"
+
+  - name: LBU
+    opcode: 0x00
+    funct: [14..12=4, 6..2=0x00, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Load Byte Unsigned"
+
+  - name: LHU
+    opcode: 0x00
+    funct: [14..12=5, 6..2=0x00, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Load Halfword Unsigned"
+
+  - name: SB
+    opcode: 0x08
+    funct: [14..12=0, 6..2=0x08, 1..0=3]
+    operands: ["imm12hi", "rs1", "rs2", "imm12lo"]
+    description: "Store Byte"
+
+  - name: SH
+    opcode: 0x08
+    funct: [14..12=1, 6..2=0x08, 1..0=3]
+    operands: ["imm12hi", "rs1", "rs2", "imm12lo"]
+    description: "Store Halfword"
+
+  - name: SW
+    opcode: 0x08
+    funct: [14..12=2, 6..2=0x08, 1..0=3]
+    operands: ["imm12hi", "rs1", "rs2", "imm12lo"]
+    description: "Store Word"
+
+  - name: ADDI
+    opcode: 0x04
+    funct: [14..12=0, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Add Immediate"
+
+  - name: SLTI
+    opcode: 0x04
+    funct: [14..12=2, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Set Less Than Immediate"
+
+  - name: SLTIU
+    opcode: 0x04
+    funct: [14..12=3, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Set Less Than Immediate Unsigned"
+
+  - name: XORI
+    opcode: 0x04
+    funct: [14..12=4, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "Exclusive OR Immediate"
+
+  - name: ORI
+    opcode: 0x04
+    funct: [14..12=6, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "OR Immediate"
+
+  - name: ANDI
+    opcode: 0x04
+    funct: [14..12=7, 6..2=0x04, 1..0=3]
+    operands: ["rd", "rs1", "imm12"]
+    description: "AND Immediate"
+
+  - name: ADD
+    opcode: 0x0C
+    funct: [31..25=0, 14..12=0, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Add"
+
+  - name: SUB
+    opcode: 0x0C
+    funct: [31..25=32, 14..12=0, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Subtract"
+
+  - name: SLL
+    opcode: 0x0C
+    funct: [31..25=0, 14..12=1, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Shift Left Logical"
+
+  - name: SLT
+    opcode: 0x0C
+    funct: [31..25=0, 14..12=2, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Set Less Than"
+
+  - name: SLTU
+    opcode: 0x0C
+    funct: [31..25=0, 14..12=3, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Set Less Than Unsigned"
+
+  - name: XOR
+    opcode: 0x0C
+    funct: [31..25=0, 14..12=4, 6..2=0x0C, 1..0=3]
+    operands: ["rd", "rs1", "rs2"]
+    description: "Exclusive OR"
