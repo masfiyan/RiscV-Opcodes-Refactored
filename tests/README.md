@@ -1,11 +1,4 @@
-## Directory Structure
-
-tests/
-├── init.py
-├── test_opcodes.py
-├── test_validation.py
-└── test_integration.py
-
+## Tests
 
 ### `__init__.py`
 
